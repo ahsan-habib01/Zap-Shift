@@ -11,7 +11,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const { loginUser } = useAuth();
+  const { loginUser, forgetPassword } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,6 +24,20 @@ const Login = () => {
       })
       .catch(error => {
         console.log(error);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    const email = prompt('Enter your email to reset password:');
+    if (!email) return; // user canceled
+
+    forgetPassword(email)
+      .then(() => {
+        alert('Reset password email sent');
+      })
+      .catch(error => {
+        console.log(error);
+        alert('Error sending reset email: ' + error.message);
       });
   };
 
@@ -79,7 +93,9 @@ const Login = () => {
               )}
 
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <a onClick={handleForgetPassword} className="link link-hover">
+                  Forgot password?
+                </a>
               </div>
               <button className="btn btn-neutral mt-4">Login</button>
             </fieldset>
@@ -93,8 +109,8 @@ const Login = () => {
                 Register
               </Link>
             </p>
-            <SocialLogin></SocialLogin>
           </form>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

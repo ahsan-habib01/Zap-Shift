@@ -12,7 +12,13 @@ const Navbar = () => {
         <NavLink to="">Services</NavLink>
       </li>
       <li>
-        <NavLink to="coverage">Coverage</NavLink>
+        <NavLink to="/send-parcel">Send Parcel</NavLink>
+      </li>
+      <li>
+        <NavLink to="/coverage">Coverage</NavLink>
+      </li>
+      <li>
+        <NavLink to="/about-us">About Us</NavLink>
       </li>
     </>
   );

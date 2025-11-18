@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -32,20 +33,28 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  const forgetPassword = email => {
+    const actionCodeSettings = {
+      url: 'http://localhost:5173/login', // replace with your login page URL
+      handleCodeInApp: false,
+    };
+    return sendPasswordResetEmail(auth, email, actionCodeSettings);
+  };
+
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  const updateUserProfile = (profile) => {
-  return updateProfile(auth.currentUser, profile)
-}
+  const updateUserProfile = profile => {
+    return updateProfile(auth.currentUser, profile);
+  };
 
   // observe user state
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      setLoading(false)
+      setLoading(false);
     });
     return () => {
       unSubscribe();
@@ -58,6 +67,7 @@ const AuthProvider = ({ children }) => {
     registerUser,
     loginUser,
     loginGoogle,
+    forgetPassword,
     logOut,
     updateUserProfile,
   };

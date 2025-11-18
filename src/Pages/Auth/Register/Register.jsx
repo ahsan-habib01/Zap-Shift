@@ -142,8 +142,8 @@ const Register = () => {
                 Login
               </Link>
             </p>
-            <SocialLogin></SocialLogin>
           </form>
+            <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>
