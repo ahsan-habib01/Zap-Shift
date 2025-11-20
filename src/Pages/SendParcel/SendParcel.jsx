@@ -148,6 +148,7 @@ const SendParcel = () => {
               <input
                 type="text"
                 {...register('senderName')}
+                defaultValue={user?.displayName}
                 className="input w-full"
                 placeholder="Sender Name"
               />
@@ -158,6 +159,7 @@ const SendParcel = () => {
               <input
                 type="text"
                 {...register('senderEmail')}
+                defaultValue={user?.email}
                 className="input w-full"
                 placeholder="Sender Email"
               />
