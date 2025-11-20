@@ -1,14 +1,20 @@
 import React from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import { useLoaderData } from 'react-router';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from './../../Hooks/useAuth';
 
 const SendParcel = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
+
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const serviceCenters = useLoaderData();
   const regionDuplicate = serviceCenters.map(c => c.region);
@@ -48,6 +54,29 @@ const SendParcel = () => {
     }
 
     console.log('cost', cost);
+
+    Swal.fire({
+      title: 'Agree with the Cost?',
+      text: `You will be charged ${cost} taka!`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'I agree!',
+    }).then(result => {
+      if (result.isConfirmed) {
+        // save the parcel info to the database
+        axiosSecure.post('/parcels', data).then(res => {
+          console.log('after saving parcel', res.data);
+        });
+
+        // Swal.fire({
+        //     title: "Deleted!",
+        //     text: "Your file has been deleted.",
+        //     icon: "success"
+        // });
+      }
+    });
   };
 
   return (
