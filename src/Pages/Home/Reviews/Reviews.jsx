@@ -15,7 +15,7 @@ const Reviews = ({ reviewsPromise }) => {
         <p className=" max-w-2xl mx-auto mt-2">
           Enhance posture, mobility, and well-being effortlessly with Posture
           Pro. Achieve proper alignment, reduce pain, and strengthen your body
-          with ease!
+          with ease!!
         </p>
       </div>
 
