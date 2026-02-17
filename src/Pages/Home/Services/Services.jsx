@@ -60,7 +60,7 @@ const Services = () => {
         <p className="text-gray-200 max-w-2xl mx-auto mt-2">
           Enjoy fast, reliable parcel delivery with real-time tracking and zero
           hassle. From personal packages to business shipments — we deliver on
-          time, every time.
+          time, every time!
         </p>
 
         {/* Grid */}
