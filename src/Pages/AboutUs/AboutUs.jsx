@@ -20,7 +20,7 @@ Our success is built on reliable delivery, efficient logistics, and strong custo
 `,
 
   'Team & Others': `
-Our dedicated team of logistics experts, delivery specialists, and customer support professionals work tirelessly to ensure seamless service. We believe in teamwork, innovation, and continuous improvement.
+Our dedicated team of logistics experts, delivery specialists, and customer support professionals work tirelessly to ensure seamless service. We believe in teamwork, innovation, and continuous improvement. Trust, reliability, and customer satisfaction are at the core of everything we do.
 `,
 };
 
